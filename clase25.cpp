@@ -1,39 +1,34 @@
 #include<iostream>
 
-using namespace std;
-
 void relleno(int l,float **m);
-
 void ImprimeCabezas(int l,float **m);
-
 void imprime(int l,float **m);
 
 int main()
 {
-  cout<<"Escriba un numero del 3 al 11"<<endl;
-  int l;
-  cin>>l;
-  cout<<"\n"<<endl;  
+  std::cout<<"Escriba un numero del 3 al 11"<<std::endl;
+  int x;
+  std::cin>>x;
+  std::cout<<"\n"<<std::endl;  
     
-  if(l>=3 && l<=11)
+  if(x>=3 && x<=11)
   {
+    float **matriz = new float *[x];
 
-    float **matriz = new float *[l];
-
-    for (int i = 0; i<l; i++)
+    for (int i = 0; i<x; i++)
     {
-      matriz[i] = new float[l+2];
+      matriz[i] = new float[x+2];
     }
-    relleno(l,matriz);
-    cout<<"\n"<<endl;
-    ImprimeCabezas(l,matriz);
-    cout<<"\n"<<endl;
-    imprime(l,matriz);
+    relleno(x,matriz);
+    std::cout<<"\n"<<std::endl;
+    ImprimeCabezas(x,matriz);
+    std::cout<<"\n"<<std::endl;
+    imprime(x,matriz);
   }
   
   else
   {
-    cout<<"El numero no se encuentra en el rango pedido"<<endl;
+    std::cout<<"El numero no se encuentra en el rango pedido"<<std::endl;
   }
     
 return 0;
@@ -53,26 +48,23 @@ void relleno(int l,float **m)
 
 void ImprimeCabezas(int l,float **m)
 {
-  float sum=0;
-  cout<<"Fila numero 0"<<"\t"<<"Suma acumulada"<<"\n"<<endl;  
+  float sumacumulada=0;
+  std::cout<<"Fila numero 0"<<"\t"<<"Suma acumulada"<<"\n"<<std::endl;  
   for (int i =0; i <l;i++) 
     {
-      sum+=m[i][0];
-      cout<<m[i][0]<<"                     "<<sum<<"\n";
+      sumacumulada += m[i][0];
+      std::cout<<m[i][0]<<"                     "<<sumacumulada<<"\n";
     }
 }
 
-
-
 void imprime(int l,float **m)
 {
-
   for (int i =0; i < (l+2) ;i++) 
   {
     for ( int j = 0; j<l;j++) 
     { 
-        cout<<" "<<m[j][i]<<" ";
+        std::cout<<" "<<m[j][i]<<" ";
     }
-    cout<<endl;
+    std::cout<<std::endl;
   }
 }
