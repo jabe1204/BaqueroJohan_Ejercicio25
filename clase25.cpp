@@ -33,7 +33,7 @@ int main()
   
   else
   {
-    cout<<"El numero no esta en el rango valido"<<endl;
+    cout<<"El numero no se encuentra en el rango pedido"<<endl;
   }
     
 return 0;
@@ -67,7 +67,7 @@ void ImprimeCabezas(int l,float **m)
 void imprime(int l,float **m)
 {
 
-  for (int i =0; i < l+2 ;i++) 
+  for (int i =0; i < (l+2) ;i++) 
   {
     for ( int j = 0; j<l;j++) 
     { 
