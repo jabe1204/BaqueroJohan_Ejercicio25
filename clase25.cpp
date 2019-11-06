@@ -1,33 +1,78 @@
-#include <iostream>
-#include <cmath>
-#include <stdlib.h>
+#include<iostream>
 
+using namespace std;
+
+void relleno(int l,float **m);
+
+void ImprimeCabezas(int l,float **m);
+
+void imprime(int l,float **m);
 
 int main()
 {
-    int x;
-
-    std::cout<<"Escriba un número del 3 al 11"<<std::endl;
-    std::cin>> x;
+  cout<<"Escriba un numero del 3 al 11"<<endl;
+  int l;
+  cin>>l;
+  cout<<"\n"<<endl;  
     
-    if(x<3||x>11)
+  if(l>=3 && l<=11)
+  {
+
+    float **matriz = new float *[l];
+
+    for (int i = 0; i<l; i++)
     {
-        std::cout<<"El número no se encuentra en el rango pedido"<<std::endl;
+      matriz[i] = new float[l+2];
     }
-    else
-    {
-        float M[x+2][x];
-    }
-    return 0;
+    relleno(l,matriz);
+    cout<<"\n"<<endl;
+    ImprimeCabezas(l,matriz);
+    cout<<"\n"<<endl;
+    imprime(l,matriz);
+  }
+  
+  else
+  {
+    cout<<"El numero no esta en el rango valido"<<endl;
+  }
+    
+return 0;
 }
 
-int relleno(int a,float M[0][0])
+
+void relleno(int l,float **m)
 {
-    for (int i = 0; i<a;i++)
+  for(int i = 0;i<(l+2);i++)
+  {
+    for(int j = 0; j<l; j++)
     {
-        for(int j =0; j <(a+2);j++)
-        {
-            M[j][i] = i+j;
-        }
+      m[j][i] = i+j;
     }
+  }
+}
+
+void ImprimeCabezas(int l,float **m)
+{
+  float sum=0;
+  cout<<"Fila numero 0"<<"\t"<<"Suma acumulada"<<"\n"<<endl;  
+  for (int i =0; i <l;i++) 
+    {
+      sum+=m[i][0];
+      cout<<m[i][0]<<"                     "<<sum<<"\n";
+    }
+}
+
+
+
+void imprime(int l,float **m)
+{
+
+  for (int i =0; i < l+2 ;i++) 
+  {
+    for ( int j = 0; j<l;j++) 
+    { 
+        cout<<" "<<m[j][i]<<" ";
+    }
+    cout<<endl;
+  }
 }
